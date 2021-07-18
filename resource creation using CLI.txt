@@ -1,0 +1,22 @@
+#List available VM sizes
+az vm list-sizes --location southeastasia -o table
+
+#RG name declaration
+$rgEUS="nilavemburg1EUS"
+
+#RG group create
+az group create --name $rgEUS --location eastus
+
+#username declaration
+user="vmadmin"
+
+#Virtual machine creation
+az vm create \
+	--resource-group $rgEUS \   
+	--name Server11 \
+	--image win2016datacenter \  
+	--admin-username $user \    
+	--zone 2
+
+#add RDP port
+az vm open-port --port 3389 --resource-group $rgEUS --name Server11
