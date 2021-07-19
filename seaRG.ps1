@@ -69,7 +69,7 @@ $lbPIP=New-AzPublicIpAddress -ResourceGroupName "nilavemburg1SEA" `
 		
 $feIP=New-AZLoadBalancerFrontendIPconfig -name FIP -PublicIpAddress $lbPIP
 		
-$bePool=New-AzLoadBalancerBackendAddressPoolConfig -Name seaLBbp
+$bePool=New-AzLoadBalancerBackendAddressPoolConfig -Name bep
 
 $hprobe1=New-AzLoadBalancerProbeConfig -Name probe_http `
                               -Protocol http `
